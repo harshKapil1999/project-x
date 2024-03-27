@@ -1,7 +1,12 @@
+"use client"
+
 import React from 'react'
 import { Button } from './ui/button'
+import { useRouter } from 'next/navigation'
 
 const LandingNavnar = () => {
+  
+  const router = useRouter()
   return (
     <div className='top-0 sticky w-full bg-yellow-400 p-4 lg:p-6 flex items-center justify-between border-b border-b-neutral-700'>
         <div>
@@ -14,7 +19,7 @@ const LandingNavnar = () => {
             <li>Blog</li>
         </ul>
         <div className='flex items-center justify-center gap-3'>
-            <Button variant="outline" className='rounded-full'>Get Started</Button>
+            <Button variant="outline" className='rounded-full' onClick={() => router.push('/dashboard')}>Get Started</Button>
             <Button variant="outline" className='rounded-full'>Login</Button>
         </div>
     </div>

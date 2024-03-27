@@ -7,6 +7,16 @@ const nextConfig = {
             hostname: 'images.pexels.com',
             
           },
+          {
+            protocol: 'https',
+            hostname: 'logoipsum.com picsum.photos',
+            
+          },
+          {
+            protocol: 'https',
+            hostname: 'picsum.photos',
+            
+          },
         ],
       },
 };

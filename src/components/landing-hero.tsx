@@ -1,8 +1,11 @@
 import React from 'react'
+import Introduction from './introduction'
 
 const LandingHero = () => {
   return (
-    <div>LandingHero</div>
+    <div>
+      <Introduction />
+    </div>
   )
 }
 

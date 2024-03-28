@@ -18,7 +18,7 @@ const Introduction = () => {
                 </ul>
                 <div className=' flex gap-4 w-full py-4'>
                     <Button className='rounded-full w-full bg-primary  p-6 text-lg font-bold text-primary-foreground'>Get Started</Button>
-                    <Button className='rounded-full w-full bg-primary  p-6 text-lg font-bold text-primary-foreground'>Login</Button> 
+                    <Button className='rounded-full w-full bg-primary  p-6 text-lg font-bold text-primary-foreground'>Signin</Button> 
                 </div>
                 
             </div>

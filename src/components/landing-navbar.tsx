@@ -8,11 +8,11 @@ const LandingNavnar = () => {
   
   const router = useRouter()
   return (
-    <div className='top-0 sticky w-full bg-yellow-400 p-4 lg:p-6 flex items-center justify-between border-b border-b-neutral-700'>
-        <div>
+    <div className='top-0 sticky w-full bg-neutral-900 p-4 lg:p-6 flex items-center justify-between border-b border-b-neutral-700'>
+        <div className='text-white'>
             Logo Project-X
         </div>
-        <ul className='md:flex items-center justify-center gap-4 hidden'>
+        <ul className='md:flex items-center justify-center gap-4 hidden text-white'>
             <li>Home</li>
             <li>Features</li>
             <li>Company</li>
@@ -20,7 +20,7 @@ const LandingNavnar = () => {
         </ul>
         <div className='flex items-center justify-center gap-3'>
             <Button variant="outline" className='rounded-full' onClick={() => router.push('/dashboard')}>Get Started</Button>
-            <Button variant="outline" className='rounded-full'>Login</Button>
+            <Button variant="outline" className='rounded-full' onClick={() => router.push('/sign-in')}>Signin</Button>
         </div>
     </div>
   )

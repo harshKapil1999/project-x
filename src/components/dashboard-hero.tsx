@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const DashboardHero = () => {
@@ -46,7 +47,7 @@ const DashboardHero = () => {
         {/* Space Selection */}
         <div className='flex items-center justify-center w-full p-4 md:p-10 flex-wrap bg-white gap-4 rounded-md'>
            {spaces.map((space, index) => (
-            <div key={index} className='flex flex-col items-center justify-center p-4 shadow-xl rounded-md aspect-square w-full max-w-xs cursor-pointer scale-90 hover:scale-100 transition-transform'>
+            <Link href={`/home`} key={index} className='flex flex-col items-center justify-center p-4 shadow-xl rounded-md aspect-square w-full max-w-xs cursor-pointer scale-90 hover:scale-100 transition-transform'>
                 <Image 
                     src={`https://picsum.photos/${150+index}`}
                     alt='space image'
@@ -56,7 +57,7 @@ const DashboardHero = () => {
                 />
                 <h1 className='text-xl font-bold'>{space.name}</h1>
                 <p className='text-xs text-muted-foreground '>{space.description}</p>
-            </div>
+            </Link>
            ))}
         </div>
     </div>

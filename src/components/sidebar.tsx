@@ -33,7 +33,7 @@ const routes = [
     {
         label: "Past Results",
         icon: ReaderIcon,
-        href: "/past-results",
+        href: "/results",
         color: "text-violet-500",
     },
     {
@@ -45,19 +45,19 @@ const routes = [
     {
         label: "Bulk Action",
         icon: LightningBoltIcon,
-        href: "/bulk-action",
+        href: "/action",
         color: "text-orange-700",
     },
     {
         label: "Get Help",
         icon: ChatBubbleIcon,
-        href: "/get-help",
+        href: "/help",
         color: "text-green-700",
     },
     {
         label: "Contact Us",
         icon: PersonIcon,
-        href: "/contact-us",
+        href: "/contact",
         color: "text-emerald-700",
     },
     {
@@ -91,7 +91,7 @@ const Sidebar = () => {
                 <div className='space-y-1'>
                     {routes.map((route) => (
                         <Link 
-                            href={route.href}
+                            href={`/dashboard${route.href}`}
                             key={route.href}
                             className={cn ("text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
                             pathname === route.href ? "text-white bg-white/10" : "text-zinc-400"

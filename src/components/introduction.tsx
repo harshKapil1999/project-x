@@ -1,8 +1,13 @@
+"use client"
+
 import Image from 'next/image'
 import React from 'react'
 import { Button } from './ui/button'
+import { useRouter } from 'next/navigation'
+
 
 const Introduction = () => {
+    const router = useRouter()
   return (
     <div className='flex flex-col  items-center justify-center w-full h-full'>
         {/* Introduction */}
@@ -17,8 +22,8 @@ const Introduction = () => {
                     <li>{`\u2022`} Hire in just 72 hours</li>
                 </ul>
                 <div className=' flex gap-4 w-full py-4'>
-                    <Button className='rounded-full w-full bg-primary  p-6 text-lg font-bold text-primary-foreground'>Get Started</Button>
-                    <Button className='rounded-full w-full bg-primary  p-6 text-lg font-bold text-primary-foreground'>Signin</Button> 
+                    <Button className='rounded-full w-full bg-primary  p-6 text-lg font-bold text-primary-foreground' onClick={() => router.push('/book-demo')}>Book a demo</Button>
+                    <Button className='rounded-full w-full bg-primary  p-6 text-lg font-bold text-primary-foreground' onClick={() => router.push('/sign-in')}>Signin</Button> 
                 </div>
                 
             </div>

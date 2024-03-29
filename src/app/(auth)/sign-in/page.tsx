@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 
 import Image from "next/image"
@@ -6,8 +8,10 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useRouter } from 'next/navigation'
 
 const SignIn = () => {
+  const router = useRouter()
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="flex items-center justify-center w-full h-full min-h-screen">
@@ -40,7 +44,7 @@ const SignIn = () => {
               </div>
               <Input id="password" type="password" required />
             </div>
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full" onClick={() => router.push('/dashboard')}>
               Sign in
             </Button>
             {/* <Button variant="outline" className="w-full">

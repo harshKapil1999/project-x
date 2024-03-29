@@ -4,10 +4,10 @@ import Sidebar from "@/components/sidebar"
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div className="w-full h-full min-h-screen relative">
-            <div className="hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0 z-[80] bg-neutral-800">
+            <div className="fixed inset-y-0 left-0 z-10 w-16 flex-col border-r bg-background flex">
                 <Sidebar />
             </div>
-            <main className='md:pl-72'>
+            <main className='pl-16 '>
                 <Header />
                  {children}
             </main>

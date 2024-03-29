@@ -6,7 +6,7 @@ const Introduction = () => {
   return (
     <div className='flex flex-col  items-center justify-center w-full h-full'>
         {/* Introduction */}
-        <div className='w-full h-full min-h-[75dvh] flex flex-col md:flex-row p-2 md:p-4 lg:py-20 gap-2 md:gap-6 bg-yellow-400'>
+        <div className='w-full h-full min-h-[75dvh] flex flex-col md:flex-row p-2 md:p-4 lg:py-20 gap-2 md:gap-6 '>
             <div className='w-full p-2 py-4'>
                 {/* Introduction with Tagline */}
                 <h1 className='text-4xl font-bold w-full'>Hire India&apos;s Top Remote Talents, Matched by AI</h1>
@@ -27,7 +27,7 @@ const Introduction = () => {
                 <Image 
                     src="https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg?auto=compress&cs=tinysrgb&w=800"
                     alt='Barand image'
-                    className='w-full h-full'
+                    className='w-full h-full rounded-xl'
                     width={1080}
                     height={1080}
                 />

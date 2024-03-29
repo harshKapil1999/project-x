@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className='top-0 sticky w-full bg-neutral-900 p-4 lg:p-6 flex items-center justify-between border-b border-b-neutral-700'>
         <div className='text-white'>
-           <Link href="/" className='font-bold p-2'>Product Name</Link>
+           <Link href="/dashboard" className='font-bold p-2'>Product Name</Link>
         </div>
         {/* <ul className='md:flex items-center justify-center gap-4 hidden'>
             <Link href="/home" className='p-2'>Home</Link>

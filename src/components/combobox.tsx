@@ -31,21 +31,22 @@ import {
 } from "@/components/ui/popover"
 import { toast } from "@/components/ui/use-toast"
 
-const languages = [
-  { label: "English", value: "en" },
-  { label: "French", value: "fr" },
-  { label: "German", value: "de" },
-  { label: "Spanish", value: "es" },
-  { label: "Portuguese", value: "pt" },
-  { label: "Russian", value: "ru" },
-  { label: "Japanese", value: "ja" },
-  { label: "Korean", value: "ko" },
-  { label: "Chinese", value: "zh" },
+const jobs = [
+  { label: "Full Stack Developer", value: "Full Stack Developer" },
+  { label: "Specialist Infrastructure", value: "Specialist Infrastructure" },
+  { label: "Javascript Developer", value: "Javascript Developer" },
+  { label: "Ruby on Rails Engineer", value: "Ruby on Rails Engineer" },
+  { label: "Manager Technology Java", value: "Manager Technology Java" },
+  { label: "Senior/Java Developer", value: "Senior/Java Developer" },
+  { label: "Senior Product Manager", value: "Senior Product Manager" },
+  { label: "Tech lead / Senior Software Engineer", value: "Tech lead / Senior Software Engineer" },
+  { label: "Cloud Platform System Engineer", value: "Cloud Platform System Engineer" },
+  { label: "Database engineer, Hadoop", value: "Database engineer, Hadoop" },
 ] as const
 
 const FormSchema = z.object({
-  language: z.string({
-    required_error: "Please select a language.",
+  job: z.string({
+    required_error: "Please select a job.",
   }),
 })
 
@@ -67,13 +68,13 @@ export function ComboboxForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-full">
         <FormField
           control={form.control}
-          name="language"
+          name="job"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>Language</FormLabel>
+              <FormLabel>Job</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -81,42 +82,42 @@ export function ComboboxForm() {
                       variant="outline"
                       role="combobox"
                       className={cn(
-                        "w-[200px] justify-between",
+                        " justify-between w-full",
                         !field.value && "text-muted-foreground"
                       )}
                     >
                       {field.value
-                        ? languages.find(
-                            (language) => language.value === field.value
+                        ? jobs.find(
+                            (job) => job.value === field.value
                           )?.label
-                        : "Select language"}
+                        : "Select job"}
                       <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0">
-                  <Command>
+                <PopoverContent className="w-full p-0">
+                  <Command className="w-full">
                     <CommandInput
-                      placeholder="Search framework..."
+                      placeholder="Search Job..."
                       className="h-9"
                     />
-                    <CommandEmpty>No framework found.</CommandEmpty>
+                    <CommandEmpty>No jobs found.</CommandEmpty>
                     <CommandList>
                     <CommandGroup>
                     
-                      {languages.map((language) => (
+                      {jobs.map((job) => (
                         <CommandItem
-                          value={language.label}
-                          key={language.value}
+                          value={job.label}
+                          key={job.value}
                           onSelect={() => {
-                            form.setValue("language", language.value)
+                            form.setValue("job", job.value)
                           }}
                         >
-                          {language.label}
+                          {job.label}
                           <CheckIcon
                             className={cn(
                               "ml-auto h-4 w-4",
-                              language.value === field.value
+                              job.value === field.value
                                 ? "opacity-100"
                                 : "opacity-0"
                             )}
@@ -130,13 +131,13 @@ export function ComboboxForm() {
                 </PopoverContent>
               </Popover>
               <FormDescription>
-                This is the language that will be used in the dashboard.
+                This is the job type that will be used in the dashboard for further analysis.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button className=" w-full" type="submit">Proceed with the selected job</Button>
       </form>
     </Form>
   )

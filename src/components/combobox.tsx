@@ -137,7 +137,7 @@ export function ComboboxForm() {
             </FormItem>
           )}
         />
-        <Button className=" w-full" type="submit">Proceed with the selected job</Button>
+        <Button className=" w-full rounded-full" type="submit">Proceed with the selected job</Button>
       </form>
     </Form>
   )

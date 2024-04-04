@@ -2,7 +2,7 @@
 
 import Header from '@/components/header'
 import { Button } from '@/components/ui/button'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 import {
@@ -34,14 +34,25 @@ import { Textarea } from '@/components/ui/textarea'
 const Home = () => {
   const router = useRouter();
 
-  const [data, setData] = useState({
-    experience: '',
-    jobTitle: '',
-    location: '',
-    description: '',
-    skills: '',
+  const [data, setData] = useState([]);
 
-  })
+
+  useEffect(() => {
+    const getJdData = async () => {
+    //console.log(`${process.env.BACKEND_URL}/api/jd`);
+    const response = await fetch(`http://localhost:8000/api/jd`)
+
+    if (!response.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+    const data = await response.json()
+    setData(data.jd);
+  }
+  getJdData();
+  }, [])
+  
+  console.log(data);
 
   const navButtons = [
     {
@@ -70,7 +81,7 @@ const Home = () => {
           ))}
         </ul> */}
       </nav>
-      <div className='w-full h-full p-4 flex flex-col gap-4'>
+      <div className='w-full h-full p-1 md:p-4 flex flex-col gap-4'>
         {/* Job selection */}
         <Card className='flex flex-col items-center justify-center'>
           <CardHeader className='flex flex-col items-center justify-center'>

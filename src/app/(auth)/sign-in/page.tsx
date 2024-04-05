@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 
 import Image from "next/image"
 import Link from "next/link"
@@ -9,9 +9,34 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useRouter } from 'next/navigation'
+import axios from 'axios'
 
 const SignIn = () => {
   const router = useRouter()
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+
+  const handleOnchange = (e: any) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+    console.log(formData);
+  }
+  const handleOnSubmit = () => {
+    //console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
+    axios.post(`${process.env.BACKEND_URL}/api/users/signin`, formData)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    //router.push('/dashboard/home');
+  }
+  
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="flex items-center justify-center w-full h-full min-h-screen">
@@ -27,9 +52,11 @@ const SignIn = () => {
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 placeholder="m@example.com"
                 required
+                onChange={handleOnchange}
               />
             </div>
             <div className="grid gap-2">
@@ -42,9 +69,15 @@ const SignIn = () => {
                   Forgot your password?
                 </Link>
               </div>
-              <Input id="password" type="password" required />
+              <Input 
+                name="password" 
+                id="password" 
+                type="password" 
+                required 
+                onChange={handleOnchange} 
+                />
             </div>
-            <Button type="submit" className="w-full" onClick={() => router.push('/dashboard')}>
+            <Button type="button" className="w-full" onClick={handleOnSubmit}>
               Sign in
             </Button>
             {/* <Button variant="outline" className="w-full">

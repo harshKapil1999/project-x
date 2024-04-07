@@ -30,6 +30,7 @@ import { ComboboxForm } from '@/components/combobox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import axios from 'axios'
 
 const Home = () => {
   const router = useRouter();
@@ -37,20 +38,9 @@ const Home = () => {
   const [data, setData] = useState([]);
 
 
-  useEffect(() => {
-    const getJdData = async () => {
-    //console.log(`${process.env.BACKEND_URL}/api/jd`);
-    const response = await fetch(`http://localhost:8000/api/jd`)
-
-    if (!response.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error('Failed to fetch data')
-    }
-    const data = await response.json()
-    setData(data.jd);
-  }
-  getJdData();
-  }, [])
+  /* useEffect(() => {
+    axios.get(`http://localhost:8000/api/jd`)
+  }, []) */
   
   console.log(data);
 

@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
+import { toast } from '@/components/ui/use-toast'
 
 const SignIn = () => {
   const router = useRouter()
@@ -23,16 +24,23 @@ const SignIn = () => {
       ...formData,
       [e.target.name]: e.target.value
     })
-    console.log(formData);
   }
-  const handleOnSubmit = () => {
-    //console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
-    axios.post(`${process.env.BACKEND_URL}/api/users/signin`, formData)
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+    //console.log(formData);
+    
+    axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/login`, formData)
     .then((response) => {
-      console.log(response.data);
+      axios.post(`/api/sign-in`, response.data)
+      .then((res) => {
+         //toast(res.data)
+         router.push('/dashboard');
+        })
+      .catch((error) => toast(error.message))
+      
     })
     .catch((error) => {
-      console.log(error);
+      toast(error.message);
     })
     //router.push('/dashboard/home');
   }
@@ -47,7 +55,7 @@ const SignIn = () => {
               Enter your email below to sign in to your account
             </p>
           </div>
-          <div className="grid gap-4">
+          <form className="grid gap-4" onSubmit={handleOnSubmit}>
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -77,13 +85,13 @@ const SignIn = () => {
                 onChange={handleOnchange} 
                 />
             </div>
-            <Button type="button" className="w-full" onClick={handleOnSubmit}>
+            <Button type="submit" className="w-full" >
               Sign in
             </Button>
             {/* <Button variant="outline" className="w-full">
               Sign in with Google
             </Button> */}
-          </div>
+          </form>
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{" "}
             <Link href="#" className="underline">

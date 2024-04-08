@@ -38,9 +38,15 @@ const Home = () => {
   const [data, setData] = useState([]);
 
 
-  /* useEffect(() => {
-    axios.get(`http://localhost:8000/api/jd`)
-  }, []) */
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/users/profile`)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }, [])
   
   console.log(data);
 

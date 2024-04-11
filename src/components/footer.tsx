@@ -65,7 +65,7 @@ const Footer = () => {
     <div className='w-full h-full bg-neutral-950 text-white p-8 md:p-16 '>
         <div className='w-full flex flex-col md:flex-row items-center justify-between border-b border-b-neutral-300 p-8'>
           <div className='flex flex-col gap-4  w-full max-w-md h-full order-last md:order-first'>
-            <h1 className='text-3xl font-semibold'>Project-X</h1>
+            <h1 className='text-3xl font-semibold'>Mind Prism</h1>
             <p className=' text-muted-foreground'>Making the world a better place through constructing elegant hierarchies.</p>
             <div className='flex gap-4 text-muted-foreground '>
               <LinkedInLogoIcon className='w-8 h-8 hover:text-white' />
@@ -74,7 +74,7 @@ const Footer = () => {
               <DiscordLogoIcon className='w-8 h-8 hover:text-white' />
               <GitHubLogoIcon className='w-8 h-8 hover:text-white' />
             </div>
-            <p className='text-muted-foreground text-sm'>© 2024 Project-X, Inc. All rights reserved.</p>
+            <p className='text-muted-foreground text-sm'>© 2024 Mind Prism, Inc. All rights reserved.</p>
           </div>
           <div className='flex flex-col sm:flex-row gap-8  justify-between  w-full h-full p-8'>
             <div className='flex flex-col gap-4'>

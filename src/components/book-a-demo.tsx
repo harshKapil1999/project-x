@@ -6,7 +6,7 @@ import { Button } from './ui/button'
 const BookADemo = () => {
   return (
     <div className='flex flex-col items-center justify-center w-full h-full min-h-screen gap-24'>
-        <Link href="/book-demo" className=' p-20 flex items-center justify-center gap-5'>
+        <Link href="/book-demo" className=' p-20 flex items-center justify-center gap-5 hover:bg-muted rounded-2xl'>
             <h1 className='text-5xl font-bold'>Book A Demo </h1>
             <ArrowRightIcon width={24} height={24} />
         </Link>

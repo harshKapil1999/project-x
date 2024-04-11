@@ -20,7 +20,7 @@ import DetailedIntroCard from './detailed-intro-card'
 
   return (
     <div className='w-full h-full flex items-center justify-center min-h-screen flex-col gap-10'>
-        <p>WEBINAR SOFTWARE THAT GETS RESULTS BY REPURPOSING AND SCALING VIDEO CONTENT</p>
+        <p className='text-xl text-muted-foreground'>WEBINAR SOFTWARE THAT GETS RESULTS BY REPURPOSING AND SCALING VIDEO CONTENT</p>
         <div className='w-full h-full flex flex-col lg:flex-row items-center justify-center gap-8'>
            {cardData.map((card, index) => (
             <DetailedIntroCard key={index} heading={card.heading} description={card.description} />

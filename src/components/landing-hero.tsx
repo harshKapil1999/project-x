@@ -3,6 +3,7 @@ import Introduction from './introduction'
 import DetailedIntroduction from './detailed-introduction'
 import QuestionAnswers from './question-answers'
 import BookADemo from './book-a-demo'
+import StepsCarousel from './steps-carousel'
 
 const LandingHero = () => {
   return (
@@ -10,6 +11,7 @@ const LandingHero = () => {
       <Introduction />
       <DetailedIntroduction />
       <QuestionAnswers />
+      <StepsCarousel />
       <BookADemo />
     </div>
   )

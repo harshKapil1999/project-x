@@ -9,7 +9,7 @@ const nextConfig = {
           },
           {
             protocol: 'https',
-            hostname: 'logoipsum.com picsum.photos',
+            hostname: 'logoipsum.com',
             
           },
           {
@@ -22,6 +22,10 @@ const nextConfig = {
             hostname: 'images.pexels.com',
             
           },
+          {
+            protocol: 'https',
+            hostname: 'img.icons8.com',
+          }
         ],
       },
 };

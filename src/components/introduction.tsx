@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 import { Button } from './ui/button'
 import { useRouter } from 'next/navigation'
+import TypewriterComponent from "typewriter-effect";
 
 
 const Introduction = () => {
@@ -14,9 +15,23 @@ const Introduction = () => {
         <div className='w-full h-full flex flex-col md:flex-row gap-2 my-auto mt-10'>
             <div className='w-full h-full p-2 py-4 flex flex-col items-center justify-center gap-8 ml-6 my-auto'>
                 {/* Introduction with Tagline */}
-                <p className='text-lg w-full text-muted-foreground '>10X WEBINAR VALUE & REPURPOSE CONTENT WITH AI</p>
-                <h1 className='text-4xl lg:text-6xl font-bold w-full'>Hire India&apos;s Top Remote Talents, Matched by AI</h1>
-                <p className='text-xl w-full'>AI-driven platform that makes hiring, and getting hired, reliable, simple, and fast.</p>
+                <p className='text-lg w-full text-muted-foreground '>10x Faster Hiring: AI Streamlines Recruitment</p>
+                <h1 className='text-4xl lg:text-6xl font-bold w-full'>The All-in-One AI Hiring Solution for Modern Recruiters</h1>
+                <div className='text-xl w-full flex'>AI-powered Talent Acquisition. &nbsp;  
+                    <TypewriterComponent 
+                        options={{
+                            strings: [
+                                "Faster.",
+                                "Smarter.",
+                                "Fairer.",
+                                
+                            ],
+                            autoStart: true,
+                            loop: true
+                        }}
+                    />
+                </div>
+                
                 {/* <ul className='w-full'>
                     <li>{`\u2022`} Sourced via ML signals</li>
                     <li>{`\u2022`} Screened via AI based assessments</li>

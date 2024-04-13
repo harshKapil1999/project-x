@@ -15,7 +15,7 @@ import DetailedIntroCard from './detailed-intro-card'
                     description: "How Much Time Does Your Team Spend Screening Resumes?"
                 },
                 {
-                    imageUrl: "https://img.icons8.com/external-outline-geotatah/64/external-drive-the-global-war-for-talent-outline-geotatah.png",
+                    imageUrl: "https://img.icons8.com/fluency/96/conference-background-selected.png",
                     heading: "Your Talent Pool",
                     description: "The Future of Recruitment is Here: AI-powered Talent Discovery with MindPrism."
                 }

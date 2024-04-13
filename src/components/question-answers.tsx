@@ -56,7 +56,7 @@ const QuestionAnswers = () => {
             {questionAnswers.map((questionAnswer, index) => (
                 <AccordionItem key={index} value={`item-${index + 1}`} className=' p-4 hover:bg-muted rounded-2xl'>
                     <AccordionTrigger className='text-2xl'>{questionAnswer.question}</AccordionTrigger>
-                    <AccordionContent className='text-2xl text-muted-foreground'>
+                    <AccordionContent className='text-lg text-muted-foreground'>
                     {questionAnswer.answer}
                     </AccordionContent>
                 </AccordionItem>

@@ -38,7 +38,7 @@ const Introduction = () => {
                     <li>{`\u2022`} Hire in just 72 hours</li>
                 </ul> */}
                 <div className=' flex gap-4 w-full py-4'>
-                    <Button className='rounded-full  p-6 text-lg font-bold' variant='outline' onClick={() => router.push('/sign-in')}>Signin</Button>
+                    {/* <Button className='rounded-full  p-6 text-lg font-bold' variant='outline' onClick={() => router.push('/sign-in')}>Signin</Button> */}
                     <Button className='rounded-full bg-primary  p-6 text-lg font-bold bg-[#9667E0] hover:bg-[#9667E0]/70' onClick={() => router.push('/book-demo')}>Book a demo</Button>
                 </div>
                 

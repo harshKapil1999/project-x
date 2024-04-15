@@ -17,8 +17,8 @@ const LandingNavnar = () => {
         </Link>
         <NavigationMenuDemo />
         <div className='flex items-center justify-center gap-3'>
-            <Button variant="outline" className='rounded-full p-6' onClick={() => router.push('/sign-in')}>Signin</Button>
-            <Button  className='rounded-full p-6  bg-[#9667E0] hover:bg-[#9667E0]/70 hover:-rotate-2' onClick={() => router.push('/book-demo')}>Book a demo</Button>
+            {/* <Button variant="outline" className='rounded-full p-6' onClick={() => router.push('/sign-in')}>Signin</Button> */}
+            <Button  className='rounded-full p-6  bg-[#9667E0] hover:bg-[#9667E0]/70 hover:-rotate-2' onClick={() => router.push('/sign-in')}>Sign in</Button>
             
         </div>
     </div>

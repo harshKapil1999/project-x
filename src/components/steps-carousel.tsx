@@ -62,7 +62,8 @@ const StepsCarousel = () => {
   return (
     <div className='w-full h-full min-h-screen flex flex-col items-center justify-center gap-5'>
         <div className='flex flex-col items-center justify-center w-full gap-3'>
-            <h1 className='text-5xl text-center font-bold'>Building Your Dream Team: The MindPrism Customer Journey</h1>
+            <h1 className='text-3xl text-center font-bold'>Building Your Dream Team?</h1>
+            <h1 className='text-5xl text-center font-extrabold'>The MindPrism Customer Journey</h1>
             <p className='text-xl text-muted-foreground'>Here&apos;s a breakdown of our 6-step process to help you find top talent faster and smarter:</p>
         </div>
        <Carousel className="w-full max-w-4xl h-full" 

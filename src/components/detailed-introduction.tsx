@@ -11,12 +11,12 @@ import DetailedIntroCard from './detailed-intro-card'
                 },
                 {
                     imageUrl: "https://img.icons8.com/cotton/64/positive-dynamic--v2.png",
-                    heading: "Your Hiring Speed",
+                    heading: "Hiring Speed",
                     description: "How Much Time Does Your Team Spend Screening Resumes?"
                 },
                 {
                     imageUrl: "https://img.icons8.com/fluency/96/conference-background-selected.png",
-                    heading: "Your Talent Pool",
+                    heading: "Talent Pool",
                     description: "The Future of Recruitment is Here: AI-powered Talent Discovery with MindPrism."
                 }
             ]

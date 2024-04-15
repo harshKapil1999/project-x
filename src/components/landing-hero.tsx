@@ -1,16 +1,16 @@
 import React from 'react'
 import Introduction from './introduction'
 import DetailedIntroduction from './detailed-introduction'
-import QuestionAnswers from './question-answers'
 import BookADemo from './book-a-demo'
 import StepsCarousel from './steps-carousel'
+import QAIntro from './q-a-intro'
 
 const LandingHero = () => {
   return (
     <div>
       <Introduction />
       <DetailedIntroduction />
-      <QuestionAnswers />
+      <QAIntro />
       <StepsCarousel />
       <BookADemo />
     </div>

@@ -1,11 +1,16 @@
 import DashboardHero from '@/components/dashboard-hero'
-import LandingNavnar from '@/components/landing-navbar'
-import React from 'react'
+import Footer from '@/components/footer'
+import Header from '@/components/header'
+
+import { Toaster } from "@/components/ui/toaster"
 
 const DashboardPage = () => {
   return (
     <div>
+      <Header />
+      <Toaster />
       <DashboardHero />
+      <Footer />
     </div>
   )
 }

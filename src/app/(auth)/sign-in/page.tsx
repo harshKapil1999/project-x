@@ -29,11 +29,11 @@ const SignIn = () => {
       e.preventDefault();
     //console.log(formData);
     
-    axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/login`, formData)
+    axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/login`, formData)
     .then((response) => {
       axios.post(`/api/sign-in`, response.data)
       .then((res) => {
-         //toast(res.data)
+         toast({ title: "User Authenticated" })
          router.push('/dashboard');
         })
       .catch((error) => toast(error.message))

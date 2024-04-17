@@ -35,21 +35,10 @@ import axios from 'axios'
 const Home = () => {
   const router = useRouter();
 
-  const [data, setData] = useState([]);
+  //const [data, setData] = useState([]);
 
 
-  useEffect(() => {
-    axios.get(`http://localhost:8000/api/users/profile`)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }, [])
   
-  console.log(data);
-
   const navButtons = [
     {
       name: 'Public Profiles',

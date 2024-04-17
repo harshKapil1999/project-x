@@ -9,7 +9,7 @@ import NavigationMenuDemo from './navigation-menu'
 const Header = () => {
   const router = useRouter()
   return (
-    <div className='top-0 sticky w-full bg-neutral-950 p-4 lg:p-6 flex items-center justify-between border-b border-b-neutral-700  '>
+    <div className='top-0 sticky w-full bg-neutral-950 p-4 lg:p-6 flex items-center justify-between border-b border-b-neutral-700 z-50 '>
         <div className='text-white'>
            <Link href="/dashboard" className='font-bold p-2'>Product</Link>
         </div>

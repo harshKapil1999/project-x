@@ -4,8 +4,9 @@ import React, { useEffect } from 'react'
 import axios from 'axios'
 
 const Job = () => {
+
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/jd`)
+    axios.get(`http://localhost:8000/api/v1/recruitersearch`)
           .then((response) => {
             console.log(response.data);
           })         

@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     cookies().set({
         name: 'mindprism-token',
         value: body.token,
-        httpOnly: true,
+        
         path: '/',
         
         maxAge: 60 * 60 * 24 * 1000 * 7,

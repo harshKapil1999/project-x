@@ -30,13 +30,63 @@ import { ComboboxForm } from '@/components/combobox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import Select from 'react-select';
+import { Select as SelectShadcn } from '@/components/ui/select'
 import axios from 'axios'
+import { boolean, number, string } from 'zod'
 
 const Home = () => {
   const router = useRouter();
 
-  //const [data, setData] = useState([]);
+  const sampleData = {
+    "Current Job Title": [ "Lead Data Engineer", "Data Engineer" ],
+    "✅Minimum Years of experience required": 6,
+    "✅Maximum Years of experience required": 10,
+    "✅Location": [ "Chennai", "Gurugram", "Gurgaon" ],
+    "Current Employment Years of experience": "More than 1 year",
+    "Current Industry": [ "Information Technology" ],
+    "Must have Skills": [
+        { "Skill Name": "PostgreSQL", "Strict": true },
+        { "Skill Name": "Hadoop or Hive", "Strict": false },
+        { "Skill Name": "AWS", "Strict": false },
+        { "Skill Name": "Java/Python/C#", "Strict": true },
+        { "Skill Name": "UNIX/Linux platforms", "Strict": true }
+    ],
+    "Good to have Skills": [
+        { "Skill Name": "Talend" }
+    ],
 
+}
+
+  const [data, setData] = useState({
+    jD: '',
+    currentJobTitle: '',
+    minExp: number,
+    maxExp: number,
+    location: [string],
+    currentEmpYearsOfExp: [string],
+    currentIndustry: '',
+    mustHaveSkills: [
+      {
+      skillName: '',
+      strict: boolean,
+    }
+  ],
+    goodToHaveSkills: [
+      {
+        skillName: ''
+      }
+    ],
+  });
+
+  const handleChangeData = (e: any) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value
+    })
+
+    console.log(data)
+  }
 
   
   const navButtons = [
@@ -53,6 +103,68 @@ const Home = () => {
       href: '/dashboard/home/github',
     },
   ]
+
+  const locationOptions = [
+    { value: 'Chennai', label: 'Chennai' },
+    { value: 'Gurugram', label: 'Gurugram' },
+    { value: 'Gurgaon', label: 'Gurgaon' },
+    { value: 'Banglore', label: 'Banglore' },
+    { value: 'Pune', label: 'Pune' },
+    { value: 'Hyderabad', label: 'Hyderabad' },
+    { value: 'Noida', label: 'Noida' },
+  ]
+  type LocationOption = {
+    value: string;
+    label: string;
+  };
+  
+  const [selectedOption, setSelectedOption] = useState([] as LocationOption[]);
+  //console.log(selectedOption);
+
+  const handleSelectLocationChange = (selectedOptions: LocationOption[]) => {
+    setSelectedOption(selectedOptions);
+    //console.log(selectedOptions);
+
+    const locationArray = selectedOption?.map((obj: any) => obj.value)
+    //console.log(locationArray);
+
+    setData({
+      ...data,
+      location: locationArray
+    })
+
+    console.log(data)
+  };
+
+  const currentEmpYearsOptions = [
+    { value: 'Less than 1 Year', label: 'Less than 1 Year' },
+    { value: 'From 1 year to 3 years', label: 'From 1 year to 3 years' },
+    { value: 'From 3 years to 5 years', label: 'From 3 years to 5 years' },
+    { value: 'More than 5 years', label: 'More than 5 years' },
+  ]
+  type currentEmpYearsOption = {
+    value: string;
+    label: string;
+  };
+  
+  const [selectedEmpExpOption, setSelectedEmpExpOption] = useState([] as currentEmpYearsOption[]);
+  //console.log(selectedOption);
+
+  const handleSelectEmpExpChange = (selectedOptions: currentEmpYearsOption[]) => {
+    setSelectedEmpExpOption(selectedOptions);
+    //console.log(selectedOptions);
+
+    const EmpExpArray = selectedEmpExpOption?.map((obj: any) => obj.value)
+    //console.log(locationArray);
+
+    setData({
+      ...data,
+      currentEmpYearsOfExp: EmpExpArray
+    })
+
+    console.log(data)
+  };
+  
 
   return (
     <div className='w-full h-full min-h-screen p-2 flex flex-col'>
@@ -92,11 +204,11 @@ const Home = () => {
                 <div className='flex gap-4'>
                   <div>
                     <Label>Min Experience</Label>
-                    <Input type='number' defaultValue={1} min={1} readOnly/>
+                    <Input type='number' defaultValue={1} min={1} name='minExp' onChange={handleChangeData}/>
                   </div>
                   <div>
                     <Label>Max Experience</Label>
-                    <Input type='number' defaultValue={10} min={10} readOnly/> 
+                    <Input type='number' defaultValue={10} min={10} name='maxExp' onChange={handleChangeData}/> 
                   </div>
                 </div>
               </CardContent>
@@ -107,41 +219,95 @@ const Home = () => {
                 <CardTitle>Location</CardTitle>
               </CardHeader>
               <CardContent>
-                <Input type='text' placeholder='Enter Location' readOnly/>
+                {/* <Input type='text' placeholder='Enter Location' /> */}
+                <Select
+                  defaultValue={selectedOption}
+                  onChange={handleSelectLocationChange}
+                  options={locationOptions}
+                  isMulti={true}
+                  isSearchable={true}
+                  name='location'
+                  placeholder="Select"
+                  className="w-full"
+                />
               </CardContent>
             </Card>
           </div>
 
-          {/* Skills */}
+          {/* Current Employment Years of experience */}
           <Card className='w-full'>
               <CardHeader>
-                <CardTitle>Skill</CardTitle>
+                <CardTitle>Current Employment Years of experience</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className='w-full flex gap-4'>
-                  <div className='w-full'>
-                    <Label>Good to have skills</Label>
-                    <Textarea placeholder="Type your skills here." readOnly/>
-                  </div>
-                  <div className='w-full'>
-                    <Label>Must have skills</Label>
-                    <Textarea placeholder="Type your skills here." readOnly/>
-                  </div>
-                </div>
-                
+                {/* <Input type='text' placeholder='Enter Location' /> */}
+                <Select
+                  defaultValue={selectedOption}
+                  onChange={handleSelectEmpExpChange}
+                  options={currentEmpYearsOptions}
+                  isMulti={true}
+                  isSearchable={true}
+                  name='location'
+                  placeholder="Select"
+                  className="w-full"
+                />
               </CardContent>
             </Card>
 
-            {/* Summary */}
+          {/* Current Industry and Job Roles */}
+          <div className='flex flex-col md:flex-row w-full gap-4'>
+            {/* Current Industry */}
             <Card className='w-full'>
               <CardHeader>
-                <CardTitle>Quick Summary</CardTitle>
+                <CardTitle>Current Industry</CardTitle>
               </CardHeader>
               <CardContent>
-                <Textarea placeholder="Type your summary here." readOnly/>
+                <Select />
               </CardContent>
             </Card>
+            {/* Location */}
+            <Card className='w-full'>
+              <CardHeader>
+                <CardTitle>Job Roles</CardTitle>
+              </CardHeader>
+              <CardContent>
+                {/* <Input type='text' placeholder='Enter Location' /> */}
+                <Select
+                  defaultValue={selectedOption}
+                  onChange={handleSelectLocationChange}
+                  options={locationOptions}
+                  isMulti={true}
+                  isSearchable={true}
+                  name='location'
+                  placeholder="Select"
+                  className="w-full"
+                />
+              </CardContent>
+            </Card>
+          </div>
+          
+          {/* Skills */}
+            <div className='flex flex-col md:flex-row w-full gap-4'>
+              {/* Good to have Skills */}
+              <Card className='w-full'>
+                  <CardHeader>
+                    <CardTitle>Good to Have Skill</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Select />
+                  </CardContent>
+                </Card>
 
+                {/* Must Have Skills */}
+                <Card className='w-full'>
+                  <CardHeader>
+                    <CardTitle>Must Have Skill</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Select />
+                  </CardContent>
+                </Card>
+            </div>
             {/* Candidature */}
             <Card className='w-full'>
               <CardHeader>

@@ -1,7 +1,7 @@
 import Footer from "@/components/footer"
 import Header from "@/components/header"
 import Sidebar from "@/components/sidebar"
-import { Toaster } from "@/components/ui/toaster"
+
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -13,7 +13,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                 <Header />
                  {children}
             </main>
-           <Toaster />
            <Footer />
         </div>
     )

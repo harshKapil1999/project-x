@@ -8,7 +8,8 @@ import { getCookie } from 'cookies-next';
 
 const Job = () => {
   const myCookie = getCookie('mindprism-token')
-  /* useEffect(() => {
+  //console.log(myCookie);
+  useEffect(() => {
     axios.get(`http://localhost:8000/api/v1/recruitersearch`, { headers: { 'Authorization': `Bearer ${myCookie}` } })
           .then((response) => {
             console.log(response.data);
@@ -16,8 +17,8 @@ const Job = () => {
           .catch((error) => {
             console.log(error);
           })
-  })
-  console.log(myCookie) */
+  } , [myCookie])
+  
 
   const getUser = () => {
     axios.get(`http://localhost:8000/api/v1/users/profile`, { headers: { 'Authorization': `Bearer ${myCookie}` } })

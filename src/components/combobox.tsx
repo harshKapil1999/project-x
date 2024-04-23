@@ -50,20 +50,25 @@ const FormSchema = z.object({
   }),
 })
 
-export function ComboboxForm() {
+export function ComboboxForm({ data, setData }: any) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: "You submitted the following values:",
+  function onSubmit(Data: z.infer<typeof FormSchema>) {
+    setData({
+      ...data,
+      jD: Data.job,
+    })
+    console.log(data);
+    /* toast({
+      title: "You selected the following job:",
       description: (
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
           <code className="text-white">{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
-    })
+    }) */
   }
 
   return (
